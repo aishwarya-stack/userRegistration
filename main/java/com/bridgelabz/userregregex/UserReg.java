@@ -13,7 +13,7 @@ public class UserReg {
 	public static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
 	@FunctionalInterface
-	public interface | UserReg<n> {
+	public interface | UserRegister<n> {
 		boolean validate(n param);
 	}
 	
