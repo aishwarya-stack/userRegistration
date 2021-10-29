@@ -4,7 +4,13 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.function.Predicate;
 
-public class UserReg {
+@FunctionalInterface
+	public interface | UserRegister<n> {
+		boolean validateFirstname(n param);
+		
+	}
+	
+public class UserReg implements UserRegister {
 	public static final Scanner sc = new Scanner(System.in);
 	public static String FIRST_NAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
 	public static String LAST_NAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
@@ -12,10 +18,6 @@ public class UserReg {
 	public static String PHONE_PATTERN = "^[0-9]{2}[0-9]{10}$";
 	public static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
-	@FunctionalInterface
-	public interface | UserRegister<n> {
-		boolean validate(n param);
-	}
 	
 	// This method checks if the entered first name is valid
 	public boolean validateFirstName(String fname) throws UserRegistrationException {
