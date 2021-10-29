@@ -12,6 +12,11 @@ public class UserReg {
 	public static String PHONE_PATTERN = "^[0-9]{2}[0-9]{10}$";
 	public static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
+	@FunctionalInterface
+	public interface | UserReg<n> {
+		boolean validate(n param);
+	}
+	
 	// This method checks if the entered first name is valid
 	public boolean validateFirstName(String fname) throws UserRegistrationException {
 		//		Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
